@@ -6,7 +6,9 @@ a system with memory to spare and a page cache configured as expected,
 subsequent reads will be much faster than the first read for a given file,
 because Linux will supply the copy it already holds in RAM.  If that copy is
 dropped from the cache (or never cached to begin with) there will be no speed
-difference across repeated reads.
+difference across repeated reads.  Make sure there is plenty of RAM to spare
+and ideally not much other activity on the node for these numbers to make any
+sense.
 
 I used this for troubleshooting unexpected page cache behavior on the GPFS
 filesytem of the PMACS HPC cluster.
