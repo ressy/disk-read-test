@@ -3,6 +3,9 @@ STEP := 128
 STOP := 2048
 DUMMY_FILES := $(shell seq ${STEP} ${STEP} ${STOP})
 
+sweep.png: sweep.log
+	Rscript disk_read_test.R
+
 sweep.log: $(DUMMY_FILES)
 	bash sweep_read_sizes.sh > $@
 
@@ -11,4 +14,4 @@ ${DUMMY_FILES}:
 
 clean:
 	rm -f $(DUMMY_FILES)
-	rm -f sweep.log
+	rm -f sweep.png

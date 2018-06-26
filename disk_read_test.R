@@ -18,12 +18,11 @@ plot_sweep <- function(sweep) {
        pch = 19,
        cex = 0.7
   )
-  abline(v = steps, lwd=1, col="#00000011")
-  abline(v = match(1024, sweep$Size), lwd=3, col="#00000044")
   firsts <- match(unique(sweep$Size), sweep$Size)
+  abline(v = firsts, lwd=1, col="#00000011")
+  abline(v = match(1024, sweep$Size), lwd=3, col="#00000044")
   points(firsts, sweep$Speed[firsts], pch=19, col="red")
-  steps <- match(unique(sweep$Size), sweep$Size)
-  axis(side = 1, at = steps, labels = sweep$Size[steps])
+  axis(side = 1, at = firsts, labels = sweep$Size[firsts])
   
   #text(x = 60, y = mean(sweep$Speed), labels = '1 GB', adj = 0.2)
   
@@ -38,9 +37,9 @@ plot_sweep <- function(sweep) {
 
 
 sweep <- read_sweep_log("sweep.log")
-#png(filename = "gpfs_speed_vs_size.png",
-#    width = 1600,
-#    height = 1200,
-#    res = 150)
+png(filename = "sweep.png",
+    width = 1600,
+    height = 1200,
+    res = 150)
 plot_sweep(sweep)
-#dev.off()
+dev.off()
