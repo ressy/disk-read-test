@@ -9,6 +9,8 @@ sweep.png: sweep.log
 sweep.log: $(DUMMY_FILES)
 	bash sweep_read_sizes.sh > $@
 
+dummy_files: $(DUMMY_FILES)
+
 ${DUMMY_FILES}:
 	dd if=/dev/zero of=$@ bs=1M count=$@
 
