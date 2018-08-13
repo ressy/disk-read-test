@@ -2,6 +2,7 @@
 STEP := 128
 STOP := 2048
 DUMMY_FILES := $(shell seq ${STEP} ${STEP} ${STOP})
+.INTERMEDIATE: $(DUMMY_FILES)
 
 sweep.png: sweep.log
 	Rscript disk_read_test.R
