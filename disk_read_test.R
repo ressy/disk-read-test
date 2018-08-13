@@ -9,14 +9,15 @@ read_sweep_log <- function(fp) {
   sweep
 }
 
-plot_sweep <- function(sweep) {
+plot_sweep <- function(sweep, ...) {
   plot(sweep$Speed,
        ylab = "Read speed (Mbps)",
        xlab = "File Size (MB)",
        main = "File read speed versus total size, eight repeats per file",
        xaxt = 'n',
        pch = 19,
-       cex = 0.7
+       cex = 0.7,
+       ...
   )
   firsts <- match(unique(sweep$Size), sweep$Size)
   abline(v = firsts, lwd=1, col="#00000011")
