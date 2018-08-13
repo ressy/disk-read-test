@@ -1,4 +1,4 @@
-# Test of repeats reads from a filesystem
+# Test of repeated reads from a filesystem
 
 This code will generate a series of files across a range of sizes, and then
 test the time to read each file into memory across multiple repeated reads.  On
@@ -9,9 +9,6 @@ dropped from the cache (or never cached to begin with) there will be no speed
 difference across repeated reads.  Make sure there is plenty of RAM to spare
 and ideally not much other activity on the node for these numbers to make any
 sense.
-
-I used this for troubleshooting unexpected page cache behavior on the GPFS
-filesytem of the PMACS HPC cluster.
 
 ## See Also
 
